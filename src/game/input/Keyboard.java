@@ -3,20 +3,21 @@ package game.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/*
+ * 
+ * @author Sheikh Md. Rahibur Rahman
+ *
+ */
+
 public class Keyboard implements KeyListener
 {
 
-	/*
-	 * Class Variables
-	 */
+
 
 	private static boolean[] keys = new boolean[128];
 
-	/*
-	 * Class methods
-	 */
 
-	// Private constructor to prevent instantiation
+
 	private Keyboard()
 	{
 	}
@@ -99,9 +100,7 @@ public class Keyboard implements KeyListener
 		}
 	}
 
-	/*
-	 * Instance
-	 */
+
 	private static Keyboard instance = null;
 
 	public static Keyboard instance()
@@ -111,9 +110,7 @@ public class Keyboard implements KeyListener
 		return instance;
 	}
 
-	/*
-	 * Listeners
-	 */
+
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
@@ -139,9 +136,6 @@ public class Keyboard implements KeyListener
 	{
 	}
 
-	/*
-	 * Key constants
-	 */
 	public static final int KEY_ENTER = '\n';
 	public static final int KEY_BACK_SPACE = '\b';
 	public static final int KEY_TAB = '\t';
