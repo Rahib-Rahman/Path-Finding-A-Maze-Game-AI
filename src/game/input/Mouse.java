@@ -4,19 +4,20 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/*
+ * 
+ * @author Sheikh Md. Rahibur Rahman
+ *
+ */
+
 public class Mouse implements MouseListener, MouseMotionListener
 {
 
-	/*
-	 * Class variables
-	 */
+	
 	private static boolean buttons[] = new boolean[5];
 	private static int x, y;
 
-	/*
-	 * Class methods
-	 */
-	// Private constructor to prevent instantiation
+
 	private Mouse()
 	{
 	}
@@ -40,9 +41,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 		return false;
 	}
 
-	/*
-	 * Instance
-	 */
+
 	private static Mouse instance = null;
 
 	public static Mouse instance()
@@ -52,9 +51,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 		return instance;
 	}
 
-	/*
-	 * Listeners
-	 */
+
 	@Override
 	public void mouseDragged(MouseEvent e)
 	{
