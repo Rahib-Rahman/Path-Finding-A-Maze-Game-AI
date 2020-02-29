@@ -5,6 +5,12 @@ import java.util.List;
 
 import game.astar.Node;
 
+/*
+ * 
+ * @author Sheikh Md. Rahibur Rahman
+ *
+ */
+
 public class Player
 {
 
