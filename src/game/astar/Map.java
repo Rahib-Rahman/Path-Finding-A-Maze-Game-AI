@@ -1,10 +1,3 @@
-/*
- * Possible optimizations:
- * - calculate f as soon as g or h are set, so it will not have to be
- *      calculated each time it is retrieved
- * - store nodes in openList sorted by their f value.
- */
-
 package game.astar;
 
 import java.awt.Color;
@@ -12,37 +5,23 @@ import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * This class represents a simple map to be used for A* pathfinding.
+/*
  * 
- * @author dopke
+ * @author Sheikh Md. Rahibur Rahman
  *
  */
+
 public class Map
 {
 
-	/**
-	 * The width of the map, in columns.
-	 */
 	private int width;
 
-	/**
-	 * The height of the map, in rows.
-	 */
+
 	private int height;
 
-	/**
-	 * Array full of nodes to be used for the pathfinding.
-	 */
 	private Node[][] nodes;
 
-	/**
-	 * Creates a map based on a two dimensional array, where each zero is a
-	 * walkable node and any other number is not.
-	 * 
-	 * @param map
-	 *            The map array used to creating the map.
-	 */
+
 	public Map(int[][] map)
 	{
 		this.width = map[0].length;
@@ -58,17 +37,7 @@ public class Map
 		}
 	}
 
-	/**
-	 * Draws the map, where each walkable node is drawn white, each non-walkable
-	 * node drawn black and each node that is in the path in yellow.
-	 * 
-	 * @param g
-	 *            A <code>Graphics</code> object in order to be able to draw
-	 *            things.
-	 * @param path
-	 *            Optional parameter. List containing the nodes to be drawn as
-	 *            path nodes.
-	 */
+
 	public void drawMap(Graphics g, List<Node> path)
 	{
 		for (int y = 0; y < height; y++)
@@ -92,15 +61,7 @@ public class Map
 		}
 	}
 
-	/**
-	 * Prints the map to the standard out, where each walkable node is simply
-	 * not printed, each non-walkable node is printed as a '#' (pound sign) and
-	 * each node that is in the path as a '@' (at sign).
-	 * 
-	 * @param path
-	 *            Optional parameter. List containing the nodes to be drawn as
-	 *            path nodes.
-	 */
+
 	public void printMap(List<Node> path)
 	{
 		for (int j = 0; j < height; j++)
@@ -124,16 +85,7 @@ public class Map
 		}
 	}
 
-	/**
-	 * If the X and Y parameters are within the map boundaries, return the node
-	 * in the specific coordinates, null otherwise.
-	 * 
-	 * @param x
-	 *            Desired node's X coordinate.
-	 * @param y
-	 *            Desired node's Y coordinate.
-	 * @return The desired node if the parameters are valid, null otherwise.
-	 */
+
 	public Node getNode(int x, int y)
 	{
 		if (x >= 0 && x < width && y >= 0 && y < height)
@@ -146,20 +98,7 @@ public class Map
 		}
 	}
 
-	/**
-	 * Tries to calculate a path from the start and end positions.
-	 * 
-	 * @param startX
-	 *            The X coordinate of the start position.
-	 * @param startY
-	 *            The Y coordinate of the start position.
-	 * @param goalX
-	 *            The X coordinate of the goal position.
-	 * @param goalY
-	 *            The Y coordinate of the goal position.
-	 * @return A list containing all of the visited nodes if there is a
-	 *         solution, an empty list otherwise.
-	 */
+
 	public final List<Node> findPath(int startX, int startY, int goalX, int goalY)
 	{
 		// If our start position is the same as our goal position ...
@@ -231,14 +170,7 @@ public class Map
 		}
 	}
 
-	/**
-	 * @param start
-	 *            The first node on the path.
-	 * @param goal
-	 *            The last node on the path.
-	 * @return a list containing all of the visited nodes, from the goal to the
-	 *         start.
-	 */
+
 	private List<Node> calcPath(Node start, Node goal)
 	{
 		LinkedList<Node> path = new LinkedList<Node>();
@@ -257,11 +189,7 @@ public class Map
 		return path;
 	}
 
-	/**
-	 * @param list
-	 *            The list to be checked.
-	 * @return The node with the lowest F score in the list.
-	 */
+
 	private Node lowestFInList(List<Node> list)
 	{
 		Node cheapest = list.get(0);
@@ -275,14 +203,7 @@ public class Map
 		return cheapest;
 	}
 
-	/**
-	 * @param node
-	 *            The node to be checked for adjacent nodes.
-	 * @param closedList
-	 *            A list containing all of the nodes already visited.
-	 * @return A LinkedList with nodes adjacent to the given node if those
-	 *         exist, are walkable and are not already in the closed list.
-	 */
+
 	private List<Node> getAdjacent(Node node, List<Node> closedList)
 	{
 		List<Node> adjacentNodes = new LinkedList<Node>();
